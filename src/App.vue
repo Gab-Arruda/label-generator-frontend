@@ -1,9 +1,9 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import LabelGeneratorPage from './pages/GenerateLabelPage.vue'
 </script>
 
 <template>
-  <h1 class="font-bold">frontend</h1>
+  <LabelGeneratorPage/>
 </template>
 
 <style scoped>
