@@ -17,7 +17,7 @@ export default createStore({
         setFoodList(state, food_list) {
             state.food_list = food_list
         },
-        setRecipeIngredient(state, recipe_item) {
+        setRecipeItems(state, recipe_item) {
             state.recipe_items.push(recipe_item);
         }
     },
