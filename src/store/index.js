@@ -4,7 +4,8 @@ export default createStore({
     state: {
         food_list: [],
         recipe_name: "",
-        unit_of_measure: "g"
+        unit_of_measure: "g",
+        recipe_items: [],
     },
     mutations: {
         setRecipeName(state, recipe_name) {
@@ -15,6 +16,9 @@ export default createStore({
         },
         setFoodList(state, food_list) {
             state.food_list = food_list
+        },
+        setRecipeIngredient(state, recipe_item) {
+            state.recipe_items.push(recipe_item);
         }
     },
     actions: {
