@@ -3,11 +3,11 @@ export default {
     computed: {
         recipe_name: {
             get() { return this.$store.state.recipe_name },
-            set(newValue) { this.$store.commit('changeRecipeName', newValue) }
+            set(newValue) { this.$store.commit('setRecipeName', newValue) }
         },
         unit_of_measure: {
             get() { return this.$store.state.unit_of_measure },
-            set(newValue) { this.$store.commit('changeUnitOfMeasure', newValue) }
+            set(newValue) { this.$store.commit('setUnitOfMeasure', newValue) }
         }
     }
 }
