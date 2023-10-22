@@ -55,8 +55,12 @@ export default {
                 @click="setSelectedIngredient(ingredient)"> {{ ingredient.nome }} </span>
             </div>
         </div>
-        <div class="flex flex-wrap w-full justify-between items-end">
-            <p><span class="text-slate-600 font-bold">Ingrediente selecionado: </span>{{ selected_ingredient.nome }}</p>
+        <div class="flex flex-wrap w-full justify-between">
+            <div class="flex flex-col justify-between">
+                <p class="text-sm">Não encontrou o ingrediente? <span class="text-red-400 underline decoration-solid hover:cursor-pointer">
+                    Adicionar novo alimento </span></p>
+                <p><span class="text-slate-600 font-bold">Ingrediente selecionado: </span>{{ selected_ingredient.nome }}</p>
+            </div>
             <div class="flex justify-self-start">
                 <div class="flex flex-col mr-4">
                     <label for="ingredient_quantity" class="text-slate-600 font-bold">Quantidade (g/ml): </label>
