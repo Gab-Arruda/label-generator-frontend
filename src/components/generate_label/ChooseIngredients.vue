@@ -20,10 +20,16 @@ export default {
             this.typed_ingredient_name = "";
         },
         addToRecipeIngredientsList() {
-            this.$store.commit('setRecipeItems', { data: this.selected_ingredient, quantity:this.ingredient_quantity });
-            this.typed_ingredient_name = "";
-            this.ingredient_quantity = null;
-            this.selected_ingredient = { nome: "" };
+            if (this.ingredient_quantity <= 0) {
+                alert('Necessário fornecer um valor válido para quantidade!');
+            } else if (!this.selected_ingredient.nome) {
+                alert('Necessário selecionar um ingrediente da lista!');
+            } else {
+                this.$store.commit('pushToRecipeItems', { data: this.selected_ingredient, quantity:this.ingredient_quantity });
+                this.typed_ingredient_name = "";
+                this.ingredient_quantity = null;
+                this.selected_ingredient = { nome: "" };
+            }
         }
     },
     watch: {

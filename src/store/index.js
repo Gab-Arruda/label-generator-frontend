@@ -17,8 +17,11 @@ export default createStore({
         setFoodList(state, food_list) {
             state.food_list = food_list
         },
-        setRecipeItems(state, recipe_item) {
+        pushToRecipeItems(state, recipe_item) {
             state.recipe_items.push(recipe_item);
+        },
+        setRecipeItems(state, recipe_items) {
+            state.recipe_items = recipe_items;
         }
     },
     actions: {
