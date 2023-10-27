@@ -45,7 +45,7 @@ export default {
 </script>
 
 <template>
-    <h1 class="font-bold mt-8 mb-2 text-xl">Ingredientes:</h1>
+    <h1 class="font-bold mt-4 mb-2 text-xl">Ingredientes:</h1>
     <div class="flex flex-col flex-wrap items-center bg-white border border-slate-200 rounded-md justify-around shadow-md shadow-slate-400 py-4 px-8">
         <div class="flex flex-col grow relative w-full">
             <label for="typed_ingredient_name" class="text-slate-600 font-bold">Lista de ingredientes: </label>
@@ -66,7 +66,7 @@ export default {
                     <label for="ingredient_quantity" class="text-slate-600 font-bold">Quantidade (g/ml): </label>
                     <input id="ingredient_quantity" type="number" min="0" v-model="ingredient_quantity" class="bg-slate-200 py-1 px-2 rounded-sm outline-none">
                 </div>
-                <div class="bg-blue-400 self-end hover:cursor-pointer" @click="addToRecipeIngredientsList()">
+                <div class="bg-blue-400 self-end hover:cursor-pointer hover:bg-blue-200" @click="addToRecipeIngredientsList()">
                     <img src="../../assets/plus.png" alt="Adicionar" class="w-8 h-8 p-1 rounded">
                 </div>
             </div>

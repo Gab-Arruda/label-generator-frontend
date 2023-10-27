@@ -20,12 +20,12 @@ export default {
 </script>
 
 <template>
-    <div class="flex flex-col items-center bg-white border border-slate-200 rounded-md justify-around shadow-md shadow-slate-400 p-4 mt-8 w-2/3">
+    <div class="flex flex-col items-center bg-white border border-slate-200 rounded-md justify-start shadow-md shadow-slate-400 p-4 mt-4 md:w-2/3">
         <div class="flex flex-row justify-between w-full">
-            <h1 class="font-bold text-base">Ingredientes</h1>
+            <h1 class="font-bold text-base">Ingrediente</h1>
             <h1 class="font-bold text-base mr-16">Quantidade</h1>
         </div>
-        <div v-for="ingredient in recipe_items" class="flex justify-between w-full">
+        <div v-for="ingredient in recipe_items" class="flex justify-between  items-center w-full">
             <span>{{ ingredient.data.nome }}</span>
             <div class="flex items-center justify-between">
                 <p class="mr-16">{{ ingredient.quantity }}</p>

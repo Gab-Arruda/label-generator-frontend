@@ -2,6 +2,7 @@
     import RecipeTitle from '../components/generate_label/RecipeTitle.vue';
     import ChooseIngredients from '../components/generate_label/ChooseIngredients.vue';
     import IngredientsList from '../components/generate_label/IngredientsList.vue';
+    import ReferenceValue from '../components/generate_label/ReferenceValue.vue';
     import axios from 'axios';
     export default {
         data() {
@@ -12,7 +13,8 @@
         components: {
             RecipeTitle,
             ChooseIngredients,
-            IngredientsList
+            IngredientsList,
+            ReferenceValue
         },
         mounted() {
             this.getFoodList();
@@ -33,9 +35,12 @@
 </script>
 
 <template>
-    <div class="bg-slate-200 p-4 h-screen">
+    <div class="bg-slate-200 p-4 min-h-screen flex flex-col">
         <RecipeTitle/>
         <ChooseIngredients/>
-        <IngredientsList/>
+        <div class="flex flex-col justify-between md:flex-row grow">
+            <IngredientsList/>
+            <ReferenceValue/>
+        </div>
     </div>
 </template>

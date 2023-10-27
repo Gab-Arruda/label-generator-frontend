@@ -6,6 +6,12 @@ export default createStore({
         recipe_name: "",
         unit_of_measure: "g",
         recipe_items: [],
+        reference: {
+            value: "50",
+            unit_of_measure: "g",
+            quantity: "1",
+            homemade_measure: "fatia"
+        }
     },
     mutations: {
         setRecipeName(state, recipe_name) {
@@ -22,6 +28,9 @@ export default createStore({
         },
         setRecipeItems(state, recipe_items) {
             state.recipe_items = recipe_items;
+        },
+        setReference(state, reference) {
+            state.reference = reference;
         }
     },
     actions: {
