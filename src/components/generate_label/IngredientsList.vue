@@ -20,7 +20,8 @@ export default {
 </script>
 
 <template>
-    <div class="flex flex-col items-center bg-white border border-slate-200 rounded-md justify-start shadow-md shadow-slate-400 p-4 mt-4 md:w-2/3">
+    <div class="flex flex-col items-center bg-white border border-slate-200 rounded-md justify-start shadow-md shadow-slate-400 p-4 mt-4
+    md:w-3/4 max-h-[590px] overflow-y-scroll">
         <div class="flex flex-row justify-between w-full">
             <h1 class="font-bold text-base">Ingrediente</h1>
             <h1 class="font-bold text-base mr-16">Quantidade</h1>
@@ -36,3 +37,14 @@ export default {
         </div>
     </div>
 </template>
+
+<style>
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number]{
+    -moz-appearance: textfield;
+}
+</style>
