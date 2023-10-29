@@ -17,7 +17,8 @@ export default {
         NewIngredientModal
     },
     computed: {
-        ...mapState(['food_list'])
+        ...mapState(['food_list']),
+        ...mapState(['recipe_items'])
     },
     methods: {
         setSelectedIngredient(selected_ingredient) {
@@ -30,6 +31,8 @@ export default {
                 alert('Necessário fornecer um valor válido para quantidade!');
             } else if (!this.selected_ingredient.nome) {
                 alert('Necessário selecionar um ingrediente da lista!');
+            } else if(this.recipe_items.some(item => item.data.id == this.selected_ingredient.id)) {
+                alert('O ingrediente "'+this.selected_ingredient.nome +'" já foi escolhido por você!')
             } else {
                 this.$store.commit('pushToRecipeItems', { data: this.selected_ingredient, quantity:this.ingredient_quantity });
                 this.typed_ingredient_name = "";
