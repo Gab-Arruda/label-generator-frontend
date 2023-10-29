@@ -21,7 +21,7 @@ export default {
                 <label for="reference_value" class="font-bold text-slate-600">Valor de referência para consumo: <span class="text-red-400 text-bold">*</span></label>
                 <div class="flex flex-wrap justify-between sm:flex-nowrap">
                     <input id="reference_value" type="number" v-model="reference.value" class="bg-slate-200 py-1 px-2 w-1/3 rounded-sm outline-none grow">
-                    <select name="unit_of_measure" id="unit_of_measure" class="bg-slate-200 py-1 px-1 rounded-sm outline-none" v-model="reference.unit_of_measure">
+                    <select name="reference_unit_of_measure" id="reference_unit_of_measure" class="bg-slate-200 py-1 px-1 rounded-sm outline-none" v-model="reference.unit_of_measure">
                         <option value="g">gramas (g)</option>
                         <option value="ml">mililitros (ml)</option>
                     </select>

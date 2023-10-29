@@ -3,6 +3,7 @@ import { createStore } from "vuex";
 export default createStore({
     state: {
         food_list: [],
+        categories_list: [],
         recipe_name: "",
         unit_of_measure: "g",
         recipe_items: [],
@@ -31,6 +32,9 @@ export default createStore({
         },
         setReference(state, reference) {
             state.reference = reference;
+        },
+        setCategoriesList(state, categories_list) {
+            state.categories_list = categories_list;
         }
     },
     actions: {

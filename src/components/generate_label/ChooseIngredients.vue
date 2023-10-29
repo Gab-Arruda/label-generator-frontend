@@ -1,5 +1,7 @@
 <script>
 import { mapState } from 'vuex';
+import NewIngredientModal from './NewIngredientModal.vue';
+
 
 export default {
     data() {
@@ -7,8 +9,12 @@ export default {
             typed_ingredient_name: "",
             filtered_ingredient_list: [],
             selected_ingredient: { nome:"" },
-            ingredient_quantity: null
+            ingredient_quantity: null,
+            showModal: false
         }
+    },
+    components: {
+        NewIngredientModal
     },
     computed: {
         ...mapState(['food_list'])
@@ -30,6 +36,12 @@ export default {
                 this.ingredient_quantity = null;
                 this.selected_ingredient = { nome: "" };
             }
+        },
+        openModal() {
+            this.showModal = true;
+        },
+        closeModal() {
+            this.showModal = false;
         }
     },
     watch: {
@@ -57,9 +69,9 @@ export default {
         </div>
         <div class="flex flex-wrap w-full justify-between">
             <div class="flex flex-col justify-between">
-                <p class="text-sm">Não encontrou o ingrediente? <span class="text-red-400 underline decoration-solid hover:cursor-pointer">
+                <p class="text-sm">Não encontrou o ingrediente? <span class="text-red-400 underline hover:cursor-pointer" @click="openModal">
                     Adicionar novo alimento </span></p>
-                <p><span class="text-slate-600 font-bold">Ingrediente selecionado: </span>{{ selected_ingredient.nome }}</p>
+                <p><span class="text-slate-600 font-bold">Ingrediente selecionado: </span> <span class="underline">{{ selected_ingredient.nome }}</span></p>
             </div>
             <div class="flex justify-self-start">
                 <div class="flex flex-col mr-4">
@@ -72,6 +84,7 @@ export default {
             </div>
         </div>
     </div>
+    <NewIngredientModal v-if="showModal" @close="closeModal" />
 </template>
 
 <style>

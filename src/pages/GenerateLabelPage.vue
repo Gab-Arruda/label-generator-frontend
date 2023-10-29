@@ -18,6 +18,7 @@
         },
         mounted() {
             this.getFoodList();
+            this.getCategoriesList();
         },
         methods: {
             async getFoodList() {
@@ -27,6 +28,16 @@
                     this.$store.commit('setFoodList', data);
                 } catch (error) {
                     alert('Error fetching food list: ' + error.message);
+                }
+                this.waitingAPI = false;
+            },
+            async getCategoriesList() {
+                try {
+                    this.waitingAPI = true;
+                    const { data } = await axios.get('http://localhost:8000/api/category/');
+                    this.$store.commit('setCategoriesList', data);
+                } catch (error) {
+                    alert('Error fetching categories list: ' + error.message);
                 }
                 this.waitingAPI = false;
             }
