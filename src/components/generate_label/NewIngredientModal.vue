@@ -51,111 +51,111 @@
 
       <div class="flex">
         <div class="flex flex-col m-1">
-          <label for="energia">Energia(kcal) <span class="text-red-400">*</span></label>
+          <label for="energia">Energia(kcal)</label>
           <input type="number" id="energia" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.energia">
         </div>
         <div class="flex flex-col m-1">
-          <label for="proteina">Proteína(g) <span class="text-red-400">*</span></label>
+          <label for="proteina">Proteína(g)</label>
           <input type="number" id="proteina" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.proteina">
         </div>
         <div class="flex flex-col m-1">
-          <label for="lipideos">Lipídeos(g) <span class="text-red-400">*</span></label>
+          <label for="lipideos">Lipídeos(g)</label>
           <input type="number" id="lipideos" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.lipideos">
         </div>
         <div class="flex flex-col m-1">
-          <label for="colesterol">Colesterol(g) <span class="text-red-400">*</span></label>
+          <label for="colesterol">Colesterol(g)</label>
           <input type="number" id="colesterol" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.colesterol">
         </div>
         <div class="flex flex-col m-1">
-          <label for="carboidrato">Carboidrato(g) <span class="text-red-400">*</span></label>
+          <label for="carboidrato">Carboidrato(g)</label>
           <input type="number" id="carboidrato" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.carboidrato">
         </div>
       </div>
 
       <div class="flex">
         <div class="flex flex-col m-1">
-          <label for="fibra_alimentar">Fibra Alimentar(g) <span class="text-red-400">*</span></label>
+          <label for="fibra_alimentar">Fibra Alimentar(g)</label>
           <input type="number" id="fibra_alimentar" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.fibra_alimentar">
         </div>
         <div class="flex flex-col m-1">
-          <label for="cinzas">Cinzas(g) <span class="text-red-400">*</span></label>
+          <label for="cinzas">Cinzas(g)</label>
           <input type="number" id="cinzas" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.cinzas">
         </div>
         <div class="flex flex-col m-1">
-          <label for="calcio">Calcio(g) <span class="text-red-400">*</span></label>
+          <label for="calcio">Calcio(g)</label>
           <input type="number" id="calcio" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.calcio">
         </div>
         <div class="flex flex-col m-1">
-          <label for="magnesio">Magnesio(g) <span class="text-red-400">*</span></label>
+          <label for="magnesio">Magnesio(g)</label>
           <input type="number" id="magnesio" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.magnesio">
         </div>
         <div class="flex flex-col m-1">
-          <label for="manganes">Manganes(g) <span class="text-red-400">*</span></label>
+          <label for="manganes">Manganes(g)</label>
           <input type="number" id="manganes" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.manganes">
         </div>
       </div>
 
       <div class="flex">
         <div class="flex flex-col m-1">
-          <label for="fosforo">Fosforo(g) <span class="text-red-400">*</span></label>
+          <label for="fosforo">Fosforo(g)</label>
           <input type="number" id="fosforo" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.fosforo">
         </div>
         <div class="flex flex-col m-1">
-          <label for="ferro">Ferro(g) <span class="text-red-400">*</span></label>
+          <label for="ferro">Ferro(g)</label>
           <input type="number" id="ferro" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.ferro">
         </div>
         <div class="flex flex-col m-1">
-          <label for="sodio">Sódio(g) <span class="text-red-400">*</span></label>
+          <label for="sodio">Sódio(g)</label>
           <input type="number" id="sodio" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.sodio">
         </div>
         <div class="flex flex-col m-1">
-          <label for="potassio">Potassio(g) <span class="text-red-400">*</span></label>
+          <label for="potassio">Potassio(g)</label>
           <input type="number" id="potassio" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.potassio">
         </div>
         <div class="flex flex-col m-1">
-          <label for="cobre">Cobre(g) <span class="text-red-400">*</span></label>
+          <label for="cobre">Cobre(g)</label>
           <input type="number" id="cobre" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.cobre">
         </div>
       </div>
 
       <div class="flex">
         <div class="flex flex-col m-1">
-          <label for="zinco">Zinco(g) <span class="text-red-400">*</span></label>
+          <label for="zinco">Zinco(g)</label>
           <input type="number" id="zinco" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.zinco">
         </div>
         <div class="flex flex-col m-1">
-          <label for="retinol">Retinol(g) <span class="text-red-400">*</span></label>
+          <label for="retinol">Retinol(g)</label>
           <input type="number" id="retinol" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.retinol">
         </div>
         <div class="flex flex-col m-1">
-          <label for="re">RE(g) <span class="text-red-400">*</span></label>
+          <label for="re">RE(g)</label>
           <input type="number" id="re" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.re">
         </div>
         <div class="flex flex-col m-1">
-          <label for="rae">RAE(g) <span class="text-red-400">*</span></label>
+          <label for="rae">RAE(g)</label>
           <input type="number" id="rae" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.rae">
         </div>
         <div class="flex flex-col m-1">
-          <label for="tiamina">Tiamina(g) <span class="text-red-400">*</span></label>
+          <label for="tiamina">Tiamina(g)</label>
           <input type="number" id="tiamina" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.tiamina">
         </div>
       </div>
 
       <div class="flex">
         <div class="flex flex-col m-1">
-          <label for="riboflavina">Riboflavina(g) <span class="text-red-400">*</span></label>
+          <label for="riboflavina">Riboflavina(g)</label>
           <input type="number" id="riboflavina" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.riboflavina">
         </div>
         <div class="flex flex-col m-1">
-          <label for="piridoxina">Piridoxina(g) <span class="text-red-400">*</span></label>
+          <label for="piridoxina">Piridoxina(g)</label>
           <input type="number" id="piridoxina" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.piridoxina">
         </div>
         <div class="flex flex-col m-1">
-          <label for="niacina">Niacina(g) <span class="text-red-400">*</span></label>
+          <label for="niacina">Niacina(g)</label>
           <input type="number" id="niacina" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.niacina">
         </div>
         <div class="flex flex-col m-1">
-          <label for="vitamina_c">Vitamina C(g) <span class="text-red-400">*</span></label>
+          <label for="vitamina_c">Vitamina C(g)</label>
           <input type="number" id="vitamina_c" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.vitamina_c">
         </div>
       </div>
@@ -164,22 +164,22 @@
         <p class="font-bold text-slate-600 pl-1">Gorduras:</p>
         <div class="flex">
           <div class="flex flex-col m-1">
-            <label for="saturados">Saturadas(g) <span class="text-red-400">*</span></label>
+            <label for="saturados">Saturadas(g)</label>
             <input type="number" id="saturados" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.saturados">
           </div>
           <div class="flex flex-col m-1">
-            <label for="mono_insaturados">Mono-insaturadas(g) <span class="text-red-400">*</span></label>
+            <label for="mono_insaturados">Mono-insaturadas(g)</label>
             <input type="number" id="mono_insaturados" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.mono_insaturados">
           </div>
           <div class="flex flex-col m-1">
-            <label for="poli_insaturados">Poli-insaturadas(g) <span class="text-red-400">*</span></label>
+            <label for="poli_insaturados">Poli-insaturadas(g)</label>
             <input type="number" id="poli_insaturados" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.poli_insaturados">
           </div>
         </div>
       </div>
       
       <div class="flex flex-col">
-        <label for="quantity" class="font-bold text-slate-600 pl-1">Qual quantidade desse alimento você irá utilizar?</label>
+        <label for="quantity" class="font-bold text-slate-600 pl-1">Qual quantidade desse alimento você irá utilizar? <span class="text-red-400">*</span></label>
         <input type="number" id="quantity" class="bg-slate-200 max-w-sm py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient_quantity">
       </div>
       

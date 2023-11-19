@@ -12,7 +12,8 @@ export default createStore({
             unit_of_measure: "g",
             quantity: "1",
             homemade_measure: "fatia"
-        }
+        },
+        recipe_mass_when_done: ""
     },
     mutations: {
         setRecipeName(state, recipe_name) {
@@ -35,13 +36,18 @@ export default createStore({
         },
         setCategoriesList(state, categories_list) {
             state.categories_list = categories_list;
+        },
+        setRecipeMassWhenDone(state, recipe_mass_when_done) {
+            state.recipe_mass_when_done = recipe_mass_when_done;
         }
     },
     actions: {
         
     },
     getters: {
-
+        getRecipeItemTotal(state) {
+            return state.recipe_items.reduce((total, obj) => total + obj.quantity, 0);
+        }
     },
     modules: {
 
