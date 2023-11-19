@@ -18,7 +18,12 @@ export default {
     },
     methods: {
         generateLabel() {
-            GenerateLabelService.generateTabelaNutricional()
+            if(this.$store.state.recipe_mass_when_done && this.$store.state.recipe_mass_when_done > 0 &&
+            this.$store.state.recipe_items && this.$store.state.recipe_items.length > 0) {
+                GenerateLabelService.generateTabelaNutricional()
+            } else {
+                alert('Nem todos os campos obrigatórios foram preenchidos');
+            }
         }
     }
 }
@@ -28,7 +33,7 @@ export default {
     <div class="flex flex-col bg-white border border-slate-200 rounded-md justify-between shadow-md shadow-slate-400 p-4 mt-4 md:ml-4 grow">
         <div class="flex flex-col justify-start">
             <div class="flex flex-col w-full pb-4">
-                <label for="recipe_mass_when_done" class="font-bold text-slate-600">Peso do alimento após preparado(g/ml)</label>
+                <label for="recipe_mass_when_done" class="font-bold text-slate-600">Peso do alimento após preparado(g/ml) <span class="text-red-400 text-bold">*</span></label>
                 <div class="flex justify-between">
                     <input id="recipe_mass_when_done" type="number" min="0" v-model="recipe_mass_when_done" class="bg-slate-200 py-1 px-2 rounded-sm outline-none grow">
                 </div>
