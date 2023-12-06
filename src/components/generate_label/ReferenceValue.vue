@@ -19,7 +19,8 @@ export default {
     methods: {
         generateLabel() {
             if(this.$store.state.recipe_mass_when_done && this.$store.state.recipe_mass_when_done > 0 &&
-            this.$store.state.recipe_items && this.$store.state.recipe_items.length > 0) {
+            this.$store.state.recipe_items && this.$store.state.recipe_items.length > 0 &&
+            this.$store.state.reference.value && this.$store.state.reference.value > 0) {
                 GenerateLabelService.generateTabelaNutricional()
             } else {
                 alert('Nem todos os campos obrigatórios foram preenchidos');

@@ -29,5 +29,10 @@ export default {
         for (let key in totalNutrientsSum) {
             hundredGramNutrients[key] = 100 * totalNutrientsSum[key] / store.state.recipe_mass_when_done;
         }
+
+        let referenceValueNutrients = {};
+        for (let key in hundredGramNutrients) {
+            referenceValueNutrients[key] = hundredGramNutrients[key] * store.state.reference.value / 100;
+        }
     }
 }
