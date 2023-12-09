@@ -1,4 +1,5 @@
 import store from '../store'
+import vdr from '../assets/vdr.json'
 
 export default {
     generateTabelaNutricional() {
@@ -33,6 +34,11 @@ export default {
         let referenceValueNutrients = {};
         for (let key in hundredGramNutrients) {
             referenceValueNutrients[key] = hundredGramNutrients[key] * store.state.reference.value / 100;
+        }
+
+        let vdrValueNutrients = {};
+        for (let key in referenceValueNutrients) {
+            vdrValueNutrients[key] = referenceValueNutrients[key] / vdr[key] * 100;
         }
     }
 }
