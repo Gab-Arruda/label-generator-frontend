@@ -25,6 +25,7 @@ export default {
             } else {
                 alert('Nem todos os campos obrigatórios foram preenchidos');
             }
+            this.$router.push('/label');
         }
     }
 }

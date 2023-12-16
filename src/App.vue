@@ -1,9 +1,8 @@
 <script setup>
-import LabelGeneratorPage from './pages/GenerateLabelPage.vue'
 </script>
 
 <template>
-  <LabelGeneratorPage/>
+  <router-view></router-view>
 </template>
 
 <style scoped>

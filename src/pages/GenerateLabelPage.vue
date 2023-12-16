@@ -1,4 +1,5 @@
 <script>
+    import { mapState } from 'vuex';
     import RecipeTitle from '../components/generate_label/RecipeTitle.vue';
     import ChooseIngredients from '../components/generate_label/ChooseIngredients.vue';
     import IngredientsList from '../components/generate_label/IngredientsList.vue';
@@ -19,10 +20,15 @@
             ReferenceValue,
             WaitingResponseModal
         },
+        computed: {
+            ...mapState(['food_list']),
+            ...mapState(['categories_list'])
+        },
         mounted() {
-            this.waitingAPI = true;
-            this.getFoodList();
-            this.getCategoriesList();
+            if(this.food_list.length == 0 || this.categories_list.length == 0) {
+                this.getFoodList();
+                this.getCategoriesList();
+            }
         },
         methods: {
             async getFoodList() {
