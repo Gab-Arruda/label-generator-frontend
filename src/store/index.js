@@ -13,7 +13,8 @@ export default createStore({
             quantity: "1",
             homemade_measure: "fatia"
         },
-        recipe_mass_when_done: "0"
+        recipe_mass_when_done: "0",
+        combined_nutrients: {}
     },
     mutations: {
         setRecipeName(state, recipe_name) {
@@ -39,6 +40,9 @@ export default createStore({
         },
         setRecipeMassWhenDone(state, recipe_mass_when_done) {
             state.recipe_mass_when_done = recipe_mass_when_done;
+        },
+        setCombinedNutrients(state, combined_nutrients) {
+            state.combined_nutrients = combined_nutrients
         }
     },
     actions: {

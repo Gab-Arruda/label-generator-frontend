@@ -3,6 +3,11 @@
 export default {
     data() {
 
+    },
+    methods: {
+        printLabel() {
+            window.print();
+        }
     }
 }
 </script>
@@ -11,4 +16,5 @@ export default {
     <div>
         Tabela Nutricional
     </div>
+    <button @click="printLabel()">Imprimir</button>
 </template>

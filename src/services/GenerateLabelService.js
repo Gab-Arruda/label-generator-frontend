@@ -2,7 +2,7 @@ import store from '../store'
 import vdr from '../assets/vdr.json'
 
 export default {
-    generateTabelaNutricional() {
+    generateTabelaNutricional(router) {
         let notNutrients = ['id', 'category_id', 'nome', 'created_at', 'updated_at'];
         const nutrientsUsedArray = store.state.recipe_items.map(ingredient => {
             let nutrients = {};
@@ -40,6 +40,17 @@ export default {
         for (let key in referenceValueNutrients) {
             vdrValueNutrients[key] = this.roundNutrientsValue(key, referenceValueNutrients[key] / vdr[key] * 100);
         }
+        const combinedNutrients = {};
+        Object.keys(hundredGramNutrients).forEach((key) => {
+            combinedNutrients[key] = {
+                hundredGram: hundredGramNutrients[key],
+                referenceValue: referenceValueNutrients[key],
+                vdrValue: vdrValueNutrients[key],
+            };
+        });
+        store.commit('setCombinedNutrients', combinedNutrients)
+        router.push('/label');
+
     },
     roundNutrientsValue(nutrient, value) {
         const nutrientsInGrams = ["proteina", "lipideos", "carboidrato", "fibra_alimentar", "cinzas"];

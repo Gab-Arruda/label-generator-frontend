@@ -9,11 +9,11 @@ export default {
     computed: {
         reference: {
             get() { return this.$store.state.reference },
-            set(newValue) { this.$store.commit('SetReference', newValue)}
+            set(newValue) { this.$store.commit('SetReference', newValue) }
         },
         recipe_mass_when_done: {
-            get() { return this.$store.state.recipe_mass_when_done},
-            set(newValue) { this.$store.commit('setRecipeMassWhenDone', newValue)}
+            get() { return this.$store.state.recipe_mass_when_done },
+            set(newValue) { this.$store.commit('setRecipeMassWhenDone', newValue) }
         }
     },
     methods: {
@@ -21,11 +21,10 @@ export default {
             if(this.$store.state.recipe_mass_when_done && this.$store.state.recipe_mass_when_done > 0 &&
             this.$store.state.recipe_items && this.$store.state.recipe_items.length > 0 &&
             this.$store.state.reference.value && this.$store.state.reference.value > 0) {
-                GenerateLabelService.generateTabelaNutricional()
+                GenerateLabelService.generateTabelaNutricional(this.$router)
             } else {
                 alert('Nem todos os campos obrigatórios foram preenchidos');
             }
-            this.$router.push('/label');
         }
     }
 }
