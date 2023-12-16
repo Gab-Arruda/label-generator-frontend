@@ -28,17 +28,20 @@ export default {
 
         let hundredGramNutrients = {};
         for (let key in totalNutrientsSum) {
-            hundredGramNutrients[key] = this.roundNutrientsValue(key, 100 * totalNutrientsSum[key] / store.state.recipe_mass_when_done);
+            const value = 100 * totalNutrientsSum[key] / store.state.recipe_mass_when_done;
+            hundredGramNutrients[key] = this.setNullNutrientsValue(key, this.roundNutrientsValue(key, value));
         }
 
         let referenceValueNutrients = {};
         for (let key in hundredGramNutrients) {
-            referenceValueNutrients[key] = this.roundNutrientsValue(key, hundredGramNutrients[key] * store.state.reference.value / 100);
+            const value = hundredGramNutrients[key] * store.state.reference.value / 100;
+            referenceValueNutrients[key] = this.setNullNutrientsValue(key, this.roundNutrientsValue(key, value));
         }
 
         let vdrValueNutrients = {};
         for (let key in referenceValueNutrients) {
-            vdrValueNutrients[key] = this.roundNutrientsValue(key, referenceValueNutrients[key] / vdr[key] * 100);
+            const value = referenceValueNutrients[key] / vdr[key] * 100;
+            vdrValueNutrients[key] = this.setNullNutrientsValue(key, this.roundNutrientsValue(key, value));
         }
         const combinedNutrients = {};
         Object.keys(hundredGramNutrients).forEach((key) => {
@@ -90,6 +93,21 @@ export default {
 
             // Divide o resultado por 100 para obter o número com duas casas decimais
             return novaDecimal2 / 100;
+        }
+    },
+    setNullNutrientsValue(nutrient, value) {
+        // FALTOU GORDURAS TOTAIS PQ PRECISO CRIAR ESSA KEY AINDA
+        switch(nutrient) {
+            case 'energia':
+                return value <= 4 ? 0 : value;
+            case 'carboidrato':
+            case 'proteina':
+            case 'fibra_alimentar':
+                return value <= 0.5 ? 0 : value;
+            case 'colesterol':
+            case 'sodio':
+                return value <= 5 ? 0 : value;
+            default: return value;
         }
     }
 }

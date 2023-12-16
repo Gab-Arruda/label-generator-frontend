@@ -2,7 +2,9 @@
 
 export default {
     data() {
-
+        return {
+            
+        }
     },
     methods: {
         printLabel() {
