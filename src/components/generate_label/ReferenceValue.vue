@@ -61,7 +61,7 @@ export default {
                     <select name="homemade_measurement" id="homemade_measurement" class="bg-slate-200 py-1 px-1 rounded-sm  w-full outline-none"
                     v-model="reference.homemade_measure">
                         <option value="fatia">Fatia</option>
-                        <option value="colher_de_cha">Colher de chá</option>
+                        <option value="colher de chá">Colher de chá</option>
                     </select>
                 </div>
             </div>

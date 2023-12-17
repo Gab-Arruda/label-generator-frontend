@@ -51,6 +51,11 @@ export default {
                 vdrValue: vdrValueNutrients[key],
             };
         });
+        combinedNutrients.gorduras_totais = {
+            hundredGram: combinedNutrients.mono_insaturados.hundredGram + combinedNutrients.poli_insaturados.hundredGram + combinedNutrients.saturados.hundredGram,
+            referenceValue: combinedNutrients.mono_insaturados.referenceValue + combinedNutrients.poli_insaturados.referenceValue + combinedNutrients.saturados.referenceValue,
+            vdrValue: combinedNutrients.mono_insaturados.vdrValue + combinedNutrients.poli_insaturados.vdrValue + combinedNutrients.saturados.vdrValue,
+        };
         store.commit('setCombinedNutrients', combinedNutrients)
         router.push('/label');
 
