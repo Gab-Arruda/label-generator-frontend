@@ -56,7 +56,17 @@ export default {
             referenceValue: combinedNutrients.mono_insaturados.referenceValue + combinedNutrients.poli_insaturados.referenceValue + combinedNutrients.saturados.referenceValue,
             vdrValue: combinedNutrients.mono_insaturados.vdrValue + combinedNutrients.poli_insaturados.vdrValue + combinedNutrients.saturados.vdrValue,
         };
-        store.commit('setCombinedNutrients', combinedNutrients)
+
+        const mandatoryNutrients = ['energia', 'carboidrato', 'proteina', 'gorduras_totais', 'saturados', 'fibra_alimentar', 'sodio'];
+
+        const filteredNutrients = Object.entries(combinedNutrients)
+            .filter(([key, value]) => mandatoryNutrients.includes(key) || value.vdrValue >= 5)
+            .reduce((acc, [key, value]) => {
+                acc[key] = value;
+                return acc;
+            }, {});
+
+        store.commit('setCombinedNutrients', filteredNutrients)
         router.push('/label');
 
     },
