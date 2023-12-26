@@ -10,8 +10,9 @@ export default {
     },
     mounted() {
         this.nutrientsLabel = Object.fromEntries(
-            Object.entries(nutrientsLabelJson).sort(([keyA], [keyB]) => keyA.localeCompare(keyB))
+            Object.entries(this.combined_nutrients).sort(([keyA], [keyB]) => keyA.localeCompare(keyB))
         );
+        this.printLabel();
     },
     computed: {
         ...mapState(['combined_nutrients']),
@@ -20,12 +21,15 @@ export default {
     },
     methods: {
         getNutrientName(key) {
-            return this.nutrientsLabel[key] ? this.nutrientsLabel[key] : key;
+            return nutrientsLabelJson[key] ? nutrientsLabelJson[key] : key;
         },
         printLabel() {
             setTimeout(function() {
-            window.print();
-        }, 2000);
+                window.print();
+            }, 2000);
+        },
+        formatNumberWithTwoDecimalPlaces(number) {
+            return parseFloat(number).toFixed(2).replace(/\.?0+$/, '');
         }
     }
 }
@@ -36,7 +40,7 @@ export default {
         <!-- ALERTAS -->
 
         <!-- TABELA NUTRICIONAL -->
-        <div class="flex flex-col w-1/2 my-8">
+        <div class="flex flex-col w-3/5 my-8">
             <h1 class="font-bold self-center border border-b-0 border-slate-800 w-full text-center">INFORMAÇÂO NUTRICIONAL</h1>
             <div class="flex flex-col items-center border border-b-0 border-slate-800 ">
                 <span class="w-full text-center">Porções por embalagem: {{ Math.floor(recipe_mass_when_done / reference.value) }}</span>
@@ -51,9 +55,9 @@ export default {
                 </tr>
                 <tr v-for="key in Object.keys(combined_nutrients)" :key="key" class="border border-slate-800">
                     <td class="px-1">{{ getNutrientName(key) }}</td>
-                    <td class="text-center px-1">{{ combined_nutrients[key].hundredGram }}</td>
-                    <td class="text-center px-1">{{ combined_nutrients[key].referenceValue }}</td>
-                    <td class="text-center px-1">{{ combined_nutrients[key].vdrValue }}</td>
+                    <td class="text-center px-1">{{ formatNumberWithTwoDecimalPlaces(combined_nutrients[key].hundredGram) }}</td>
+                    <td class="text-center px-1">{{ formatNumberWithTwoDecimalPlaces(combined_nutrients[key].referenceValue) }}</td>
+                    <td class="text-center px-1">{{ formatNumberWithTwoDecimalPlaces(combined_nutrients[key].vdrValue) }}</td>
                 </tr>
             </table>
         </div>
