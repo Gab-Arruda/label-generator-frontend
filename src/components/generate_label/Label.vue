@@ -9,9 +9,11 @@ export default {
         }
     },
     mounted() {
+
         this.nutrientsLabel = Object.fromEntries(
-            Object.entries(this.combined_nutrients).sort(([keyA], [keyB]) => keyA.localeCompare(keyB))
+            Object.entries(this.combined_nutrients).sort(([keyA], [keyB]) => this.getNutrientName(keyA).localeCompare(this.getNutrientName(keyB)))
         );
+        // pegar o nutrientesLabel que já está ordenado e deixar primeiro energia, carboidrato, proteina, fibra alimentar, sodio e depois gordura
         this.printLabel();
     },
     computed: {
@@ -53,11 +55,11 @@ export default {
                     <th>Porção</th>
                     <th>%VD</th>
                 </tr>
-                <tr v-for="key in Object.keys(combined_nutrients)" :key="key" class="border border-slate-800">
+                <tr v-for="key in Object.keys(nutrientsLabel)" :key="key" class="border border-slate-800">
                     <td class="px-1">{{ getNutrientName(key) }}</td>
-                    <td class="text-center px-1">{{ formatNumberWithTwoDecimalPlaces(combined_nutrients[key].hundredGram) }}</td>
-                    <td class="text-center px-1">{{ formatNumberWithTwoDecimalPlaces(combined_nutrients[key].referenceValue) }}</td>
-                    <td class="text-center px-1">{{ formatNumberWithTwoDecimalPlaces(combined_nutrients[key].vdrValue) }}</td>
+                    <td class="text-center px-1">{{ formatNumberWithTwoDecimalPlaces(nutrientsLabel[key].hundredGram) }}</td>
+                    <td class="text-center px-1">{{ formatNumberWithTwoDecimalPlaces(nutrientsLabel[key].referenceValue) }}</td>
+                    <td class="text-center px-1">{{ formatNumberWithTwoDecimalPlaces(nutrientsLabel[key].vdrValue) }}</td>
                 </tr>
             </table>
         </div>
