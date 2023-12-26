@@ -1,19 +1,32 @@
 <script>
 import { mapState } from 'vuex';
+import nutrientsLabelJson from '../../assets/nutrients_label.json'
 
 export default {
     data() {
         return {
-            
+            nutrientsLabel: {}
         }
     },
     mounted() {
-        window.print();
+        this.nutrientsLabel = Object.fromEntries(
+            Object.entries(nutrientsLabelJson).sort(([keyA], [keyB]) => keyA.localeCompare(keyB))
+        );
     },
     computed: {
         ...mapState(['combined_nutrients']),
         ...mapState(['reference']),
         ...mapState(['recipe_mass_when_done'])
+    },
+    methods: {
+        getNutrientName(key) {
+            return this.nutrientsLabel[key] ? this.nutrientsLabel[key] : key;
+        },
+        printLabel() {
+            setTimeout(function() {
+            window.print();
+        }, 2000);
+        }
     }
 }
 </script>
@@ -37,7 +50,7 @@ export default {
                     <th>%VD</th>
                 </tr>
                 <tr v-for="key in Object.keys(combined_nutrients)" :key="key" class="border border-slate-800">
-                    <td class="px-1">{{ key }}</td>
+                    <td class="px-1">{{ getNutrientName(key) }}</td>
                     <td class="text-center px-1">{{ combined_nutrients[key].hundredGram }}</td>
                     <td class="text-center px-1">{{ combined_nutrients[key].referenceValue }}</td>
                     <td class="text-center px-1">{{ combined_nutrients[key].vdrValue }}</td>
