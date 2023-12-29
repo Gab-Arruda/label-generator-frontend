@@ -57,7 +57,8 @@ export default {
             vdrValue: combinedNutrients.mono_insaturados.vdrValue + combinedNutrients.poli_insaturados.vdrValue + combinedNutrients.saturados.vdrValue,
         };
 
-        const mandatoryNutrients = ['energia', 'carboidrato', 'proteina', 'gorduras_totais', 'saturados', 'fibra_alimentar', 'sodio'];
+        const mandatoryNutrients = ['energia', 'carboidrato', 'proteina', 'gorduras_totais', 'saturados', 'poli_insaturados', 'mono_insaturados',
+            'fibra_alimentar', 'sodio'];
 
         const filteredNutrients = Object.entries(combinedNutrients)
             .filter(([key, value]) => mandatoryNutrients.includes(key) || value.vdrValue >= 5)
