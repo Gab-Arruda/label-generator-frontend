@@ -1,26 +1,98 @@
 {
-    "energia": "Valor energético (Kcal)",
-    "fibra_alimentar": "Fibra Alimentar (g)",
-    "acucares": "Açúcares Adicionados (g)",
-    "calcio": "Cálcio (g)",
-    "carboidrato": "Carboidratos (g)",
-    "cobre": "Cobre (g)",
-    "colesterol": "Colesterol (mg)",
-    "ferro": "Ferro (mg)",
-    "fosforo": "Fósforo (mg)",
-    "gorduras_totais": "Gorduras Totais (g)",
-    "lipideos": "Gorduras (g)",
-    "magnesio": "Magnésio (mg)",
-    "manganes": "Manganes (mg)", 
-    "mono_insaturados": "Gorduras Monoinsaturadas (g)",
-    "niacina": "Niacina (mg)",
-    "poli_insaturados": "Gorduras Poliinsaturadas (g)",
-    "potassio": "Potássio (mg)",
-    "proteina": "Proteínas (g)",
-    "riboflavina": "Riboflavina (mg)",
-    "saturados": "Gorduras Saturadas (g)",
-    "sodio": "Sódio (mg)",
-    "tiamina": "Tiamina (mg)",
-    "vitamina_c": "Vitamina C (mg)",
-    "zinco": "Zinco (mg)"
+    "energia": {
+        "label": "Valor energético (Kcal)",
+        "order": 1
+    },
+    "fibra_alimentar": {
+        "label": "Fibra Alimentar (g)",
+        "order": 4
+    },
+    "acucares": {
+        "label": "Açúcares Adicionados (g)",
+        "order": 18
+    },
+    "calcio": {
+        "label": "Cálcio (g)",
+        "order": 21
+    },
+    "carboidrato": {
+        "label": "Carboidratos (g)",
+        "order": 2
+    },
+    "cobre": {
+        "label": "Cobre (g)",
+        "order": 10
+    },
+    "colesterol": {
+        "label": "Colesterol (mg)",
+        "order": 7
+    },
+    "ferro": {
+        "label": "Ferro (mg)",
+        "order": 8
+    },
+    "fosforo": {
+        "label": "Fósforo (mg)",
+        "order": 9
+    },
+    "gorduras_totais": {
+        "label": "Gorduras Totais (g)",
+        "order": 6
+    },
+    "lipideos": {
+        "label":"Gorduras (g)",
+        "order": 11
+    },
+    "magnesio": {
+        "label": "Magnésio (mg)",
+        "order": 12
+    },
+    "manganes": {
+        "label": "Manganes (mg)",
+        "order": 13
+    }, 
+    "mono_insaturados": {
+        "label": "Gorduras Monoinsaturadas (g)",
+        "order": 14
+    },
+    "niacina": {
+        "label": "Niacina (mg)",
+        "order": 15
+    },
+    "poli_insaturados": {
+        "label": "Gorduras Poliinsaturadas (g)",
+        "order": 16
+    },
+    "potassio": {
+        "label": "Potássio (mg)",
+        "order": 17
+    },
+    "proteina": {
+        "label": "Proteínas (g)",
+        "order": 3
+    },
+    "riboflavina": {
+        "label": "Riboflavina (mg)",
+        "order": 19
+    },
+    "saturados": {
+        "label": "Gorduras Saturadas (g)",
+        "order": 20
+    },
+    "sodio": {
+        "label": "Sódio (mg)",
+        "order": 5
+    },
+    "tiamina": {
+        "label": "Tiamina (mg)",
+        "order": 22
+    },
+    "vitamina_c": {
+        "label": "Vitamina C (mg)",
+        "order": 23
+    },
+    "zinco": {
+        "label": "Zinco (mg)",
+        "order": 24
+    }
 }

@@ -5,15 +5,19 @@ import nutrientsLabelJson from '../../assets/nutrients_label.json'
 export default {
     data() {
         return {
-            nutrientsLabel: {}
+            nutrientsArray: []
         }
     },
     mounted() {
+        // Só faltou ajustar a ordem dos nutrientes a serem apresentados
 
-        this.nutrientsLabel = Object.fromEntries(
-            Object.entries(this.combined_nutrients).sort(([keyA], [keyB]) => this.getNutrientName(keyA).localeCompare(this.getNutrientName(keyB)))
-        );
-        // pegar o nutrientesLabel que já está ordenado e deixar primeiro energia, carboidrato, proteina, fibra alimentar, sodio e depois gordura
+        const combinedArray = Object.keys(nutrientsLabelJson)
+        .map(key => ({ key, ...this.combined_nutrients[key], order: nutrientsLabelJson[key].order }));
+
+        this.nutrientsArray = combinedArray.sort((a, b) => a.order - b.order);
+
+        console.log(JSON.stringify(this.nutrientsArray));
+
         this.printLabel();
     },
     computed: {
@@ -23,7 +27,10 @@ export default {
     },
     methods: {
         getNutrientName(key) {
-            return nutrientsLabelJson[key] ? nutrientsLabelJson[key] : key;
+            return nutrientsLabelJson[key] ? nutrientsLabelJson[key].label : key;
+        },
+        getNutrientOrder(key) {
+            return nutrientsLabelJson[key] ? nutrientsLabelJson[key].order : 500;
         },
         printLabel() {
             setTimeout(function() {
@@ -55,11 +62,11 @@ export default {
                     <th>Porção</th>
                     <th>%VD</th>
                 </tr>
-                <tr v-for="key in Object.keys(nutrientsLabel)" :key="key" class="border border-slate-800">
-                    <td class="px-1">{{ getNutrientName(key) }}</td>
-                    <td class="text-center px-1">{{ formatNumberWithTwoDecimalPlaces(nutrientsLabel[key].hundredGram) }}</td>
-                    <td class="text-center px-1">{{ formatNumberWithTwoDecimalPlaces(nutrientsLabel[key].referenceValue) }}</td>
-                    <td class="text-center px-1">{{ formatNumberWithTwoDecimalPlaces(nutrientsLabel[key].vdrValue) }}</td>
+                <tr v-for="nutrient in nutrientsArray" :key="nutrient.key" class="border border-slate-800">
+                    <td class="px-1" v-if="nutrient.hundredGram">{{ getNutrientName(nutrient.key) }}</td>
+                    <td class="text-center px-1" v-if="nutrient.hundredGram">{{ formatNumberWithTwoDecimalPlaces(nutrient.hundredGram) }}</td>
+                    <td class="text-center px-1" v-if="nutrient.hundredGram">{{ formatNumberWithTwoDecimalPlaces(nutrient.referenceValue) }}</td>
+                    <td class="text-center px-1" v-if="nutrient.hundredGram">{{ formatNumberWithTwoDecimalPlaces(nutrient.vdrValue) }}</td>
                 </tr>
             </table>
         </div>
