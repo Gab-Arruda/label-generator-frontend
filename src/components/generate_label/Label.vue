@@ -9,21 +9,18 @@ export default {
         }
     },
     mounted() {
-        // Só faltou ajustar a ordem dos nutrientes a serem apresentados
-
         const combinedArray = Object.keys(nutrientsLabelJson)
         .map(key => ({ key, ...this.combined_nutrients[key], order: nutrientsLabelJson[key].order }));
 
         this.nutrientsArray = combinedArray.sort((a, b) => a.order - b.order);
-
-        console.log(JSON.stringify(this.nutrientsArray));
 
         this.printLabel();
     },
     computed: {
         ...mapState(['combined_nutrients']),
         ...mapState(['reference']),
-        ...mapState(['recipe_mass_when_done'])
+        ...mapState(['recipe_mass_when_done']),
+        ...mapState(['recipe_name'])
     },
     methods: {
         getNutrientName(key) {
@@ -49,7 +46,8 @@ export default {
         <!-- ALERTAS -->
 
         <!-- TABELA NUTRICIONAL -->
-        <div class="flex flex-col w-3/5 my-8">
+        <h1 class="my-4 text-xl font-bold self-center w-full text-center">{{ recipe_name }}</h1>
+        <div class="flex flex-col w-3/5 my-4">
             <h1 class="font-bold self-center border border-b-0 border-slate-800 w-full text-center">INFORMAÇÂO NUTRICIONAL</h1>
             <div class="flex flex-col items-center border border-b-0 border-slate-800 ">
                 <span class="w-full text-center">Porções por embalagem: {{ Math.floor(recipe_mass_when_done / reference.value) }}</span>
