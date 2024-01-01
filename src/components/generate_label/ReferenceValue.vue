@@ -26,6 +26,10 @@ export default {
             } else {
                 alert('Nem todos os campos obrigatórios foram preenchidos');
             }
+        },
+        openHomemadeMeasuresPdf() {
+            const path = 'pdf/instrucao_n_75.pdf';
+            window.open(path, '_blank');
         }
     }
 }
@@ -64,6 +68,7 @@ export default {
                         <option v-for="(value, key) in homemadeArray" :key="key" :value="value"> {{ value }}</option>
                     </select>
                 </div>
+                <span class="underline text-red-400 hover:cursor-pointer" @click="openHomemadeMeasuresPdf()">Checar regras</span>
             </div>
             <div class="flex flex-col w-full py-4">
                 <label for="reference_quantity" class="font-bold text-slate-600">Quantidade em medida caseira: <span class="text-red-400 text-bold">*</span></label>

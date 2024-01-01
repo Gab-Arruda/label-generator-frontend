@@ -11,7 +11,7 @@ export default createStore({
             total_in_package: "0",
             unit_of_measure: "g",
             quantity: "1",
-            homemade_measure: "fatia"
+            homemade_measure: "Fatia"
         },
         recipe_mass_when_done: "0",
         combined_nutrients: {}
