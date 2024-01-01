@@ -5,7 +5,8 @@ import nutrientsLabelJson from '../../assets/nutrients_label.json'
 export default {
     data() {
         return {
-            nutrientsArray: []
+            nutrientsArray: [],
+            gordurasLabelArray: ['saturados', 'mono_insaturados', 'poli_insaturados']
         }
     },
     mounted() {
@@ -61,10 +62,13 @@ export default {
                     <th>%VD</th>
                 </tr>
                 <tr v-for="nutrient in nutrientsArray" :key="nutrient.key" class="border border-slate-800">
-                    <td class="px-1" v-if="nutrient.hundredGram">{{ getNutrientName(nutrient.key) }}</td>
-                    <td class="text-center px-1" v-if="nutrient.hundredGram">{{ formatNumberWithTwoDecimalPlaces(nutrient.hundredGram) }}</td>
-                    <td class="text-center px-1" v-if="nutrient.hundredGram">{{ formatNumberWithTwoDecimalPlaces(nutrient.referenceValue) }}</td>
-                    <td class="text-center px-1" v-if="nutrient.hundredGram">{{ formatNumberWithTwoDecimalPlaces(nutrient.vdrValue) }}</td>
+                    <template v-if="nutrient.hundredGram">
+                        <td class="px-4" v-if="gordurasLabelArray.includes(nutrient.key)">{{ getNutrientName(nutrient.key) }}</td>
+                        <td class="px-1" v-else>{{ getNutrientName(nutrient.key) }}</td>
+                        <td class="text-center px-1">{{ formatNumberWithTwoDecimalPlaces(nutrient.hundredGram) }}</td>
+                        <td class="text-center px-1">{{ formatNumberWithTwoDecimalPlaces(nutrient.referenceValue) }}</td>
+                        <td class="text-center px-1">{{ formatNumberWithTwoDecimalPlaces(nutrient.vdrValue) }}</td>
+                    </template>
                 </tr>
             </table>
         </div>
