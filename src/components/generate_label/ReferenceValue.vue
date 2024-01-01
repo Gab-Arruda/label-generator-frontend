@@ -1,9 +1,10 @@
 <script>
 import GenerateLabelService from '../../services/GenerateLabelService'
+import homemadeMeasuresJson from '../../assets/homemade_measures.json'
 export default {
     data() {
         return {
-
+            homemadeArray: homemadeMeasuresJson
         }
     },
     computed: {
@@ -60,8 +61,7 @@ export default {
                 <div class="flex justify-between">
                     <select name="homemade_measurement" id="homemade_measurement" class="bg-slate-200 py-1 px-1 rounded-sm  w-full outline-none"
                     v-model="reference.homemade_measure">
-                        <option value="fatia">Fatia</option>
-                        <option value="colher de chá">Colher de chá</option>
+                        <option v-for="(value, key) in homemadeArray" :key="key" :value="value"> {{ value }}</option>
                     </select>
                 </div>
             </div>
