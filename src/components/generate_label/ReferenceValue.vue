@@ -34,25 +34,25 @@ export default {
     <div class="flex flex-col bg-white border border-slate-200 rounded-md justify-between shadow-md shadow-slate-400 p-4 mt-4 md:ml-4 grow">
         <div class="flex flex-col justify-start">
             <div class="flex flex-col w-full pb-4">
-                <label for="recipe_mass_when_done" class="font-bold text-slate-600">Peso do alimento após preparado(g/ml) <span class="text-red-400 text-bold">*</span></label>
+                <label for="recipe_mass_when_done" class="font-bold text-slate-600">Peso da receita após preparada(g/ml) <span class="text-red-400 text-bold">*</span></label>
                 <div class="flex justify-between">
                     <input id="recipe_mass_when_done" type="number" min="0" v-model="recipe_mass_when_done" class="bg-slate-200 py-1 px-2 rounded-sm outline-none grow">
                 </div>
             </div>
             <div class="flex flex-col w-full pb-4">
-                <label for="reference_value" class="font-bold text-slate-600">Valor de referência para consumo: <span class="text-red-400 text-bold">*</span></label>
+                <label for="total_in_package" class="font-bold text-slate-600">Peso do alimento na embalagem(g/ml) <span class="text-red-400 text-bold">*</span></label>
+                <div class="flex justify-between">
+                    <input id="total_in_package" type="number" min="0" v-model="reference.total_in_package" class="bg-slate-200 py-1 px-2 rounded-sm outline-none grow">
+                </div>
+            </div>
+            <div class="flex flex-col w-full pb-4">
+                <label for="reference_value" class="font-bold text-slate-600">Porção de referência para consumo: <span class="text-red-400 text-bold">*</span></label>
                 <div class="flex flex-wrap justify-between sm:flex-nowrap">
                     <input id="reference_value" type="number" v-model="reference.value" class="bg-slate-200 py-1 px-2 w-1/3 rounded-sm outline-none grow">
                     <select name="reference_unit_of_measure" id="reference_unit_of_measure" class="bg-slate-200 py-1 px-1 rounded-sm outline-none" v-model="reference.unit_of_measure">
                         <option value="g">gramas (g)</option>
                         <option value="ml">mililitros (ml)</option>
                     </select>
-                </div>
-            </div>
-            <div class="flex flex-col w-full py-4">
-                <label for="reference_quantity" class="font-bold text-slate-600">Quantidade: <span class="text-red-400 text-bold">*</span></label>
-                <div class="flex justify-between">
-                    <input id="reference_quantity" type="number" min="0" v-model="reference.quantity" class="bg-slate-200 py-1 px-2 rounded-sm outline-none grow">
                 </div>
             </div>
             <div class="flex flex-col w-full py-4">
@@ -65,10 +65,15 @@ export default {
                     </select>
                 </div>
             </div>
+            <div class="flex flex-col w-full py-4">
+                <label for="reference_quantity" class="font-bold text-slate-600">Quantidade em medida caseira: <span class="text-red-400 text-bold">*</span></label>
+                <div class="flex justify-between">
+                    <input id="reference_quantity" type="number" min="0" v-model="reference.quantity" class="bg-slate-200 py-1 px-2 rounded-sm outline-none grow">
+                </div>
+            </div>
             <div class="flex flex-col items-start pt-4">
                 <p class="text-slate-600 font-bold">Preview do valor de referência:</p>
-                <p class="text-slate-500">Porção de {{ reference.value }}{{ reference.unit_of_measure }} ({{ reference.quantity }} {{ reference.homemade_measure }})
-                    x kcal</p>
+                <p class="text-slate-500">Porção de {{ reference.value }}{{ reference.unit_of_measure }} ({{ reference.quantity }} {{ reference.homemade_measure }})</p>
             </div> 
         </div>
         <button class="bg-blue-400 text-white self-center text-xl font-bold px-8 py-4 rounded-md w-full md:w-2/3 hover:cursor-pointer hover:bg-blue-200"

@@ -8,6 +8,7 @@ export default createStore({
         recipe_items: [],
         reference: {
             value: "0",
+            total_in_package: "0",
             unit_of_measure: "g",
             quantity: "1",
             homemade_measure: "fatia"

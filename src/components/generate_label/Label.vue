@@ -50,7 +50,7 @@ export default {
         <div class="flex flex-col w-3/5 my-4">
             <h1 class="font-bold self-center border border-b-0 border-slate-800 w-full text-center">INFORMAÇÂO NUTRICIONAL</h1>
             <div class="flex flex-col items-center border border-b-0 border-slate-800 ">
-                <span class="w-full text-center">Porções por embalagem: {{ Math.floor(recipe_mass_when_done / reference.value) }}</span>
+                <span class="w-full text-center">Porções por embalagem: {{ Math.floor(reference.total_in_package / reference.value) }}</span>
                 <span class="w-full text-center">Porção de {{reference.value}}g ({{ reference.quantity }} {{ reference.homemade_measure }})</span>
             </div>
             <table>
