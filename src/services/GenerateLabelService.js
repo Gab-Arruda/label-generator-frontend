@@ -66,6 +66,7 @@ export default {
                 acc[key] = value;
                 return acc;
             }, {});
+        delete filteredNutrients.lipideos;
 
         store.commit('setCombinedNutrients', filteredNutrients)
         router.push('/label');

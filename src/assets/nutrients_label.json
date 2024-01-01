@@ -25,15 +25,15 @@
     },
     "colesterol": {
         "label": "Colesterol (mg)",
-        "order": 7
+        "order": 20
     },
     "ferro": {
         "label": "Ferro (mg)",
-        "order": 8
+        "order": 14
     },
     "fosforo": {
         "label": "Fósforo (mg)",
-        "order": 9
+        "order": 16
     },
     "gorduras_totais": {
         "label": "Gorduras Totais (g)",
@@ -53,7 +53,7 @@
     }, 
     "mono_insaturados": {
         "label": "Gorduras Monoinsaturadas (g)",
-        "order": 14
+        "order": 8
     },
     "niacina": {
         "label": "Niacina (mg)",
@@ -61,7 +61,7 @@
     },
     "poli_insaturados": {
         "label": "Gorduras Poliinsaturadas (g)",
-        "order": 16
+        "order": 9
     },
     "potassio": {
         "label": "Potássio (mg)",
@@ -77,7 +77,7 @@
     },
     "saturados": {
         "label": "Gorduras Saturadas (g)",
-        "order": 20
+        "order": 7
     },
     "sodio": {
         "label": "Sódio (mg)",
