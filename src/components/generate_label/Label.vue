@@ -6,7 +6,10 @@ export default {
     data() {
         return {
             nutrientsArray: [],
-            gordurasLabelArray: ['saturados', 'mono_insaturados', 'poli_insaturados']
+            gordurasLabelArray: ['saturados', 'mono_insaturados', 'poli_insaturados'],
+            highFatAlert: false,
+            highSodiumAlert: false,
+            highSugarAlert: false
         }
     },
     mounted() {
@@ -15,6 +18,9 @@ export default {
 
         this.nutrientsArray = combinedArray.sort((a, b) => a.order - b.order);
 
+        this.highFatAlert = this.showHighFatLabel();
+        this.highSodiumAlert = this.showHighSodiumLabel();
+        // this.highSugarAlert = this.showHighSugarLabel();
         this.printLabel();
     },
     computed: {
@@ -37,6 +43,15 @@ export default {
         },
         formatNumberWithTwoDecimalPlaces(number) {
             return parseFloat(number).toFixed(2).replace(/\.?0+$/, '');
+        },
+        showHighFatLabel() {
+            return this.nutrientsArray.find(x => x.key == 'saturados').hundredGram >= 6;
+        },
+        showHighSodiumLabel() {
+            return this.nutrientsArray.find(x => x.key == 'sodio').hundredGram >= 600;
+        },
+        showHighSugarLabel () {
+            return this.nutrientsArray.find(x => x.key == 'acucar').hundredGram >= 15;
         }
     }
 }
@@ -44,9 +59,6 @@ export default {
 
 <template>
     <div class="w-full flex flex-col items-center">
-        <!-- ALERTAS -->
-
-        <!-- TABELA NUTRICIONAL -->
         <h1 class="my-4 text-xl font-bold self-center w-full text-center">{{ recipe_name }}</h1>
         <div class="flex flex-col w-3/5 my-4">
             <h1 class="font-bold self-center border border-b-0 border-slate-800 w-full text-center">INFORMAÇÂO NUTRICIONAL</h1>
@@ -71,6 +83,14 @@ export default {
                     </template>
                 </tr>
             </table>
+        </div>
+        <div v-if="highFatAlert || highSodiumAlert || highSugarAlert" class="flex flex-col items-center w-full">
+            <h1 class="font-bold text-center p-2">Utilize os seguintes alertas em sua embalagem:</h1>
+            <div class="flex flex-row items-center">    
+                <img v-if="highFatAlert" src="../../assets/high_fat.png" alt="High Fat Alert" class="p-1 w-40">
+                <img v-if="highSodiumAlert" src="../../assets/high_sodium.png" alt="High Sodium Alert" class="p-1 w-40">
+                <img v-if="highSugarAlert" src="../../assets/high_sugar.png" alt="High Sugar Alert" class="p-1 w-40">
+            </div>
         </div>
     </div>
 </template>
