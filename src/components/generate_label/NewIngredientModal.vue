@@ -10,11 +10,13 @@
     },
     methods: {
       addNewIngredientToUserList() {
-        if(this.new_ingredient_quantity <= 0) {
-          alert('Necessário fornecer um valor válido para quantidade!');
-        } else {
+        if(this.new_ingredient_quantity >= 0 && this.new_ingredient_quantity != null && this.new_ingredient.nome != null && this.new_ingredient.energia != null &&
+        this.new_ingredient.proteina != null && this.new_ingredient.carboidrato != null && this.new_ingredient.fibra_alimentar != null && this.new_ingredient.sodio != null &&
+        this.new_ingredient.saturados != null && this.new_ingredient.mono_insaturados != null && this.new_ingredient.poli_insaturados != null) {
           this.$store.commit('pushToRecipeItems', { data: this.new_ingredient, quantity:this.new_ingredient_quantity });
           this.closeModal();
+        } else {
+          alert('Preencha todos os campos obrigatórios corretamente!');
         }
       },
       closeModal() {
@@ -41,21 +43,21 @@
           <label for="nome">Nome <span class="text-red-400">*</span></label>
           <input type="text" id="nome" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.nome">
         </div>
-        <div class="flex flex-col m-1">
+        <!-- <div class="flex flex-col m-1">
           <label for="nome">Categoria <span class="text-red-400">*</span></label>
           <select name="category_select" id="category_select" class="bg-slate-200 py-1.5 px-1 rounded-sm  w-full outline-none" v-model="new_ingredient.category_id">
             <option v-for="category in categories_list" :value="category.id">{{category.nome}}</option>
           </select>
-        </div>
+        </div> -->
       </div>
 
       <div class="flex">
         <div class="flex flex-col m-1">
-          <label for="energia">Energia(kcal)</label>
+          <label for="energia">Energia(kcal)<span class="text-red-400">*</span></label>
           <input type="number" id="energia" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.energia">
         </div>
         <div class="flex flex-col m-1">
-          <label for="proteina">Proteína(g)</label>
+          <label for="proteina">Proteína(g)<span class="text-red-400">*</span></label>
           <input type="number" id="proteina" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.proteina">
         </div>
         <div class="flex flex-col m-1">
@@ -67,14 +69,14 @@
           <input type="number" id="colesterol" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.colesterol">
         </div>
         <div class="flex flex-col m-1">
-          <label for="carboidrato">Carboidrato(g)</label>
+          <label for="carboidrato">Carboidrato(g)<span class="text-red-400">*</span></label>
           <input type="number" id="carboidrato" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.carboidrato">
         </div>
       </div>
 
       <div class="flex">
         <div class="flex flex-col m-1">
-          <label for="fibra_alimentar">Fibra Alimentar(g)</label>
+          <label for="fibra_alimentar">Fibra Alimentar(g)<span class="text-red-400">*</span></label>
           <input type="number" id="fibra_alimentar" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.fibra_alimentar">
         </div>
         <div class="flex flex-col m-1">
@@ -105,7 +107,7 @@
           <input type="number" id="ferro" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.ferro">
         </div>
         <div class="flex flex-col m-1">
-          <label for="sodio">Sódio(g)</label>
+          <label for="sodio">Sódio(g)<span class="text-red-400">*</span></label>
           <input type="number" id="sodio" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.sodio">
         </div>
         <div class="flex flex-col m-1">
@@ -164,15 +166,15 @@
         <p class="font-bold text-slate-600 pl-1">Gorduras:</p>
         <div class="flex">
           <div class="flex flex-col m-1">
-            <label for="saturados">Saturadas(g)</label>
+            <label for="saturados">Saturadas(g)<span class="text-red-400">*</span></label>
             <input type="number" id="saturados" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.saturados">
           </div>
           <div class="flex flex-col m-1">
-            <label for="mono_insaturados">Mono-insaturadas(g)</label>
+            <label for="mono_insaturados">Mono-insaturadas(g)<span class="text-red-400">*</span></label>
             <input type="number" id="mono_insaturados" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.mono_insaturados">
           </div>
           <div class="flex flex-col m-1">
-            <label for="poli_insaturados">Poli-insaturadas(g)</label>
+            <label for="poli_insaturados">Poli-insaturadas(g)<span class="text-red-400">*</span></label>
             <input type="number" id="poli_insaturados" class="bg-slate-200 py-1 px-2 mb-1 rounded-sm outline-none" v-model="new_ingredient.poli_insaturados">
           </div>
         </div>
